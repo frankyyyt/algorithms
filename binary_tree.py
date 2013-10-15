@@ -1,6 +1,6 @@
 # traverse a binary tree
 
-tree = [0, [1, [2, [3, 4]]]]
+tree = [0, [1, [[2, 3], [4, [5, 6]]]]]
 
 
 def traverse(tree):
