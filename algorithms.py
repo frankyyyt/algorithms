@@ -13,18 +13,12 @@ def sortStringsByLength():
 
 def reverseString():
 	description = "Write an iterative function to reverse a string. Do the same thing as a recursive function."
-	print description
 
-	s = "For I dipt into the future, far as human eye could see..."
+	s = "tarp"
+	s = list(s)
+	s.reverse()
+	s = "".join(s)
 	
-	j = 0
-	i = len(s) - 1
-	
-	while i > 0:
-		s = s[j:i] + s[:1]
-		print s
-		i -= 1
-		j += 1
 
 def asciiCharacters():
 	description = "Write a for loop that prints out the ascii characters in a string s"
@@ -114,23 +108,22 @@ def tokenize_string():
 	delimeter = ','
 	result = list()
 
-	i = 0
 	last = 0
-	for l in s:
+	for i, l in enumerate(s):
 		if l == delimeter: 
 			result.append(s[last:i])
 			last = i
 		if i+1 == len(s):
 			result.append(s[last:i+1])
-		i += 1
+		
 	print result
 
-sortStringsByLength()
-reverseString()
-asciiCharacters()
-sortDict()
+#sortStringsByLength()
+#reverseString()
+#asciiCharacters()
+#sortDict()
 #primes()
-reverseWordsInPlace()
+#reverseWordsInPlace()
 #missingNumber()
-palindrome()
+#palindrome()
 tokenize_string()
