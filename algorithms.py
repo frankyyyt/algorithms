@@ -27,8 +27,13 @@ def reverse_string():
 			print result, "start=", start, "n=", n
 			start = n
 	
-def reverse_string_recursive(string='tarp'):
+def reverse_string_recursive(s='tarp'):
 	description = "Write a recursive function to reverse a string."
+	print s
+	if s == "":
+		return s
+	else:
+		return reverse_string_recursive(s[1:]) + s[0]
 
 	pass
 
@@ -130,4 +135,4 @@ def tokenize_string():
 		
 	print result
 
-reverse_string()
+print reverse_string_recursive()
