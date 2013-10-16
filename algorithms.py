@@ -1,6 +1,6 @@
 import random
 
-def sortStringsByLength():
+def sort_strings_by_length():
 	description = "Sort an array of strings by the length of the string in Python"
 	print description
 
@@ -11,16 +11,28 @@ def sortStringsByLength():
 	l = [i[1] for i in l]
 	print l
 
-def reverseString():
-	description = "Write an iterative function to reverse a string. Do the same thing as a recursive function."
+def reverse_string():
+	description = "Write an iterative function to reverse a string."
 
-	s = "tarp"
-	s = list(s)
-	s.reverse()
-	s = "".join(s)
+	s = "tarp" # starting variable
+	result = "" # empty result string
+
+	n = 0 # place marker
+	start = 0 # place marker
+
+	while s[n:] != "": # while the string, from place marker to end, is not empty
+		while s[n:] != "" and s[n] != " ": # AND while the place marker value is not a space
+			n += 1 							# move place marker forward
+			result = s[start:n] + result # old marker to new marker
+			print result, "start=", start, "n=", n
+			start = n
 	
+def reverse_string_recursive(string='tarp'):
+	description = "Write a recursive function to reverse a string."
 
-def asciiCharacters():
+	pass
+
+def ascii_characters():
 	description = "Write a for loop that prints out the ascii characters in a string s"
 	print description
 
@@ -34,7 +46,7 @@ def asciiCharacters():
 	print ' '
 	print [ord(l) for l in s]
 
-def sortDict():
+def sort_dict():
 	description = "for loop that prints dict items in ascending order"
 	print description
 
@@ -60,7 +72,7 @@ def primes():
 		n += 1
 
 
-def reverseWordsInPlace():
+def reverse_words_in_place():
 	description = "Reverse a string, in place (not in place yet)"
 	print description
 
@@ -77,7 +89,7 @@ def reverseWordsInPlace():
 		i += 1
 	print sn
 
-def missingNumber():
+def missing_number():
 	description = "Suppose you have an array of 99 numbers. The array contains the digits 1 to 100 with one digit missing. "
 	print description
 	r = random.randint(0, 100)
@@ -118,12 +130,4 @@ def tokenize_string():
 		
 	print result
 
-#sortStringsByLength()
-#reverseString()
-#asciiCharacters()
-#sortDict()
-#primes()
-#reverseWordsInPlace()
-#missingNumber()
-#palindrome()
-tokenize_string()
+reverse_string()
