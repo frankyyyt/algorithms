@@ -6,12 +6,13 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 """
 
-x = 1000
+x = 999
 y = 0
 
-while x <= 1000 and x > 0:
-	if x % 5 == 0 and x % 3 == 0:
+while x >= 0:
+
+	if x % 5 == 0 or x % 3 == 0:
 		y = y + x
-	x = x - 1
+	x -= 1
 
 print y
