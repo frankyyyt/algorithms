@@ -6,18 +6,6 @@ class Node():
 		self.parent 		= None
 		self.value 			= value
 
-	def get_left_child(self):
-		return self.left_child
-
-	def get_right_child(self):
-		return self.right_child
-
-	def get_parent(self):
-		return self.parent
-
-	def get_value(self):
-		return self.value
-
 	def insert_left_child(self, new_node):
 		if self.left_child == None:
 			self.left_child = Node(new_node)
@@ -47,6 +35,9 @@ def traverse(node):
 		
 root = Node("root")
 root.insert_left_child("alibi")
+root.insert_right_child("klipper")
+root.right_child.insert_left_child("dudley")
+root.right_child.insert_right_child("burp")
 root.left_child.insert_left_child("thrud")
 root.left_child.insert_right_child("muck")
 root.left_child.left_child.insert_left_child("kreep")
