@@ -1,10 +1,10 @@
 class Node():
 
 	def __init__(self, value):
-		self.left_child 	= None
-		self.right_child 	= None
-		self.parent 		= None
-		self.value 			= value
+		self.left_child = None
+		self.right_child = None
+		self.parent = None
+		self.value = value
 
 	def insert_left_child(self, new_node):
 		if self.left_child == None:
