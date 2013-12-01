@@ -1,17 +1,20 @@
 def multiply_rows(row, start, end):
 	multipliers = list()
-	for i in range(start, end):
+	for i in range(start, end+1):
 		multipliers.append(int(matrix[row][i]))
 	return reduce(lambda x, y: x*y, multipliers)
 
 def multiply_columns(column, start, end):
 	multipliers = list()
-	for i in range(start, end):
+	for i in range(start, end+1):
 		multipliers.append(int(matrix[i][column]))
 	return reduce(lambda x, y: x*y, multipliers)
 
-def multiply_diagonals(start, end):
-	return
+def multiply_diagonals(row, start, end):
+	multipliers = list()
+	for x, y in zip(range(row, row+4), range(start, end+1)):
+		multipliers.append(int(matrix[x][y]))
+	return reduce(lambda x, y: x*y, multipliers)
 
 matrix = list()
 
@@ -20,14 +23,29 @@ matrix_string = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 4
 matrix_list = matrix_string.split(" ")
 
 for i in (zip(range(0, 400, 20), range(19, 400, 20))):
-	matrix.append(matrix_list[i[0]:i[1]])
+	matrix.append(matrix_list[i[0]:i[1]+1])
 
 # the matrix is ready
 
-for i in range(0, 10):
-	start = 0
-	end = 4
-	while end <= 20:
-		print multiply_rows(i, start, end)
-		start += 1
-		end += 1
+row_answers 		= list()
+column_answers 		= list()
+diagonal_answers 	= list()
+
+for rownumber, row in enumerate(matrix):
+	for start, end in (zip(range(0, 18), range(3, 20))):
+		
+		row_answers.append(multiply_rows(rownumber, start, end))
+		column_answers.append(multiply_columns(rownumber, start, end))
+
+		if rownumber <= 16:
+			diagonal_answers.append(multiply_diagonals(rownumber, start, end))
+
+
+row_answers.sort(reverse=True)
+column_answers.sort(reverse=True)
+diagonal_answers.sort(reverse=True)
+
+print "Top answers by type:"
+print "Row:", row_answers[0]
+print "Column: ", column_answers[0]
+print "Diagonal: ", diagonal_answers[0]
