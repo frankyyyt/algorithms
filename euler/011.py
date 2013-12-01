@@ -10,9 +10,15 @@ def multiply_columns(column, start, end):
 		multipliers.append(int(matrix[i][column]))
 	return multiplier(multipliers)
 
-def multiply_diagonals(row, start, end):
+def multiply_diagonals_down(row, start, end):
 	multipliers = list()
 	for x, y in zip(range(row, row+4), range(start, end+1)):
+		multipliers.append(int(matrix[x][y]))
+	return multiplier(multipliers)
+
+def multiply_diagonals_up(row, start, end):
+	multipliers = list()
+	for x, y in zip(range(row, row+4), range(end, start-1, -1)):
 		multipliers.append(int(matrix[x][y]))
 	return multiplier(multipliers)
 
@@ -40,7 +46,8 @@ for rownumber, row in enumerate(matrix):
 		column_answers.append(multiply_columns(rownumber, start, end))
 
 		if rownumber <= 16:
-			diagonal_answers.append(multiply_diagonals(rownumber, start, end))
+			diagonal_answers.append(multiply_diagonals_down(rownumber, start, end))
+			diagonal_answers.append(multiply_diagonals_up(rownumber, start, end))
 
 row_answers.sort(reverse=True)
 column_answers.sort(reverse=True)
