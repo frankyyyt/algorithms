@@ -1,33 +1,39 @@
-print """
-
-The prime factors of 13195 are 5, 7, 13 and 29.
-
-What is the largest prime factor of the number 600851475143 ?
-
-"""
-
-def find_prime_factors(n):
-	result = list()
-
-	factor = n - 1
-
-	while factor > 1:
-		print "checking factor", factor
-		if n % factor == 0:
-			print factor, "is a factor"
-			if is_prime(factor) == True:
-				return factor, "is the largest prime factor"
-		factor -= 1
-	return False
-
 def is_prime(n):
-	if n % n == 0:
-		x = n ** int(0.5)
-		while x > 1:
-			print "testing if prime:", n, "%", x
-			if n % x == 0:
-				return False
-			x -= 1
+	i = 2
+	while i*i <= n:
+		if n % i == 0:
+			return False
+		i += 1
 	return True
 
-print find_prime_factors(600851475143)
+def is_factor(number, i):
+	if number % i == 0:
+		return True
+	return False
+
+primes = []
+n = 2
+while len(primes) <= 10000:
+	if is_prime(n) == True:
+		primes.append(n)
+	n += 1
+print primes
+
+'''
+number = 600851475143
+i = number
+answer_found = False
+
+while i > 1:
+	if is_prime(i) == True:
+		print i
+	i -= 1
+
+while i > 1 and answer_found == False:
+	if is_factor(number, i) == True:
+		print i, "is a factor"
+		if is_prime(i) == True:
+			print i
+			answer_found = True
+	i -= 1
+'''
