@@ -135,4 +135,5 @@ def tokenize_string():
 		
 	print result
 
-print reverse_string_recursive()
+#print reverse_string_recursive()
+primes()
